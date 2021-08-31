@@ -37,35 +37,6 @@ export const findRecipe = (recipeID: number, callback: Function) => {
       }
       callback(null, recipe);
     });
-    /*const queryString = `
-      SELECT 
-        o.*,
-        p.*,
-        c.name AS customer_name,
-        c.email
-      FROM Recipe AS r
-      INNER JOIN User AS u ON u.id=r.user_id
-      INNER JOIN Product AS p ON p.id=o.product_id
-      WHERE r.recipe_id=?`
-      
-    db.query(queryString, recipeID, (err, result) => {
-      if (err) {callback(err)}
-      
-      const row = (<RowDataPacket> result)[0];
-      const recipe: Recipe =  {
-        recipeID: row.recipe_id,
-        recipeName: row.recipe_name,
-        description: row.description,
-        user: {
-          userID: row.user_id,
-          userName: row.user_name,
-          email: row.email
-        },
-        lastChange: row.last_change,
-        createdOn: row.created_on
-      }
-      callback(null, recipe);
-    });*/
 };
 export const findAll = (callback: Function) => {
   const queryString = `
